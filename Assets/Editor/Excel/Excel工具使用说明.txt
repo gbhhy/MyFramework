@@ -1,0 +1,12 @@
+1.Excel文件应当放置在ExcelTable文件夹中
+若需要修改，就去修改ExcelTool中的ExcelPath静态路径变量
+2.配置表规则
+	第一行：字段名
+	第二行：字段类型（目前支持int，float，bool，string）
+	想要添加类型，需要在ExcelTool的GenerateExcelBinary和BinaryDataManager的LoadTable<T,K>中添加对应的读写逻辑
+	第三行：主键是哪个字段，通过key来标识
+	第四行：描述信息（无作用）
+	五到N行：数据信息
+	下方的表名决定了数据结构类，容器类，2进制文件的文件名
+3.生成的容器类和数据结构类路径可以在ExcelTool的静态变量DataClassPath和DataContainerPath中修改
+4.二进制文件路径在BinaryDataManager的静态变量DataBinaryPath中修改
